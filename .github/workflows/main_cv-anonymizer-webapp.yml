@@ -27,19 +27,17 @@ jobs:
           python -m venv venv
           source venv/bin/activate
 
-      - name: Check current directory and list files
+      - name: Create requirements.txt
         run: |
-          pwd
-          ls -la
+          echo "Flask" >> requirements.txt
+          echo "gunicorn" >> requirements.txt
+          echo "spacy" >> requirements.txt
+          echo "pdfplumber" >> requirements.txt
+          echo "reportlab" >> requirements.txt
 
-      - name: Check inside hi directory
-        run: |
-          ls -la hi/
-      
       - name: Install dependencies
-        run: pip install -r hi/requirements.txt
-      - name: Install dependencies
-        run: pip install -r hi/requirements.txt
+        run: pip install -r requirements.txt
+
 
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
